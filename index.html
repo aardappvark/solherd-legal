@@ -3,91 +3,173 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SolHerd — Cattle Breeding Intelligence</title>
+    <title>SolHerd - Legal Documents</title>
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background: #0A0A0E; color: #ccc; line-height: 1.6; }
-        .container { max-width: 800px; margin: 0 auto; padding: 60px 24px; }
-        h1 { color: #fff; font-size: 42px; margin-bottom: 8px; }
-        h1 span { color: #2E7D32; }
-        .subtitle { color: #888; font-size: 20px; margin-bottom: 48px; }
-        .features { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-bottom: 48px; }
-        .feature { background: #18282E; border-radius: 16px; padding: 24px; border: 1px solid #2a3e2a; }
-        .feature h3 { color: #66BB6A; font-size: 16px; margin-bottom: 8px; }
-        .feature p { color: #999; font-size: 14px; }
-        .breeds { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 48px; }
-        .breed { background: #18282E; border-radius: 20px; padding: 8px 16px; font-size: 14px; color: #fff; border: 1px solid #2a3e2a; }
-        .legal-links { border-top: 1px solid #222; padding-top: 32px; margin-top: 48px; }
-        .legal-links a { color: #9945FF; text-decoration: none; margin-right: 24px; font-size: 14px; }
-        .legal-links a:hover { text-decoration: underline; }
-        .footer { margin-top: 32px; color: #555; font-size: 13px; }
-        .badge { display: inline-block; background: #1a3a2a; color: #66BB6A; padding: 6px 16px; border-radius: 20px; font-size: 14px; margin-bottom: 32px; }
-        @media (max-width: 600px) {
-            .features { grid-template-columns: 1fr; }
-            h1 { font-size: 32px; }
+        body {
+            background-color: #0A0A0E;
+            color: #E0E0E0;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            line-height: 1.6;
+            min-height: 100vh;
         }
+        header {
+            background: linear-gradient(135deg, #1a1a2e 0%, #0A0A0E 100%);
+            border-bottom: 2px solid #9945FF;
+            padding: 2rem 1rem;
+            text-align: center;
+        }
+        header h1 {
+            color: #14F195;
+            font-size: 2.5rem;
+            margin-bottom: 0.25rem;
+            letter-spacing: 1px;
+        }
+        header p {
+            color: #9945FF;
+            font-size: 1.1rem;
+        }
+        nav {
+            background-color: #111118;
+            padding: 0.75rem 1rem;
+            text-align: center;
+            border-bottom: 1px solid #222;
+        }
+        nav a {
+            color: #9945FF;
+            text-decoration: none;
+            margin: 0 0.75rem;
+            font-size: 0.95rem;
+            transition: color 0.2s;
+        }
+        nav a:hover { color: #14F195; }
+        nav a.active { color: #14F195; }
+        main {
+            max-width: 800px;
+            margin: 2rem auto;
+            padding: 0 1.5rem;
+        }
+        .intro {
+            text-align: center;
+            margin-bottom: 2.5rem;
+            padding: 1.5rem;
+            border: 1px solid #222;
+            border-radius: 8px;
+            background-color: #111118;
+        }
+        .intro h2 {
+            color: #14F195;
+            margin-bottom: 0.5rem;
+        }
+        .intro p {
+            color: #aaa;
+        }
+        .docs-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.25rem;
+            margin-bottom: 2rem;
+        }
+        .doc-card {
+            background-color: #111118;
+            border: 1px solid #222;
+            border-radius: 8px;
+            padding: 1.5rem;
+            transition: border-color 0.2s, transform 0.2s;
+        }
+        .doc-card:hover {
+            border-color: #9945FF;
+            transform: translateY(-2px);
+        }
+        .doc-card h3 {
+            color: #14F195;
+            margin-bottom: 0.5rem;
+            font-size: 1.15rem;
+        }
+        .doc-card p {
+            color: #aaa;
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+        }
+        .doc-card a {
+            color: #9945FF;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.95rem;
+            transition: color 0.2s;
+        }
+        .doc-card a:hover { color: #14F195; }
+        footer {
+            border-top: 1px solid #222;
+            padding: 1.5rem 1rem;
+            text-align: center;
+            color: #666;
+            font-size: 0.85rem;
+            margin-top: 3rem;
+        }
+        footer a {
+            color: #9945FF;
+            text-decoration: none;
+        }
+        footer a:hover { color: #14F195; }
     </style>
 </head>
 <body>
-    <div class="container">
-        <h1>Sol<span>Herd</span></h1>
-        <p class="subtitle">Cattle breeding intelligence for the Solana Seeker</p>
-        <div class="badge">Built for Solana Seeker</div>
-
-        <div class="features">
-            <div class="feature">
-                <h3>20+ Breeds</h3>
-                <p>Comprehensive profiles for Angus, Hereford, Simmental, Charolais, Brahman, Wagyu, and more.</p>
+    <header>
+        <h1>SolHerd</h1>
+        <p>Cattle Breeding Intelligence</p>
+    </header>
+    <nav>
+        <a href="index.html" class="active">Home</a>
+        <a href="privacy.html">Privacy</a>
+        <a href="terms.html">Terms</a>
+        <a href="copyright.html">Copyright</a>
+        <a href="license.html">License</a>
+        <a href="disclaimer.html">Disclaimer</a>
+        <a href="sanctions.html">Sanctions</a>
+    </nav>
+    <main>
+        <div class="intro">
+            <h2>Legal Documents</h2>
+            <p>Review the legal documents governing your use of SolHerd, a cattle breeding intelligence tool distributed via the Solana Seeker dApp Store.</p>
+        </div>
+        <div class="docs-grid">
+            <div class="doc-card">
+                <h3>Privacy Policy</h3>
+                <p>How SolHerd handles your data. No personal information is collected. All data is stored on-device only.</p>
+                <a href="privacy.html">Read Privacy Policy &rarr;</a>
             </div>
-            <div class="feature">
-                <h3>Pairing Calculator</h3>
-                <p>Bull-cow pairing scores based on EPDs, heterosis, calving ease, and production goals.</p>
+            <div class="doc-card">
+                <h3>Terms of Service</h3>
+                <p>The terms and conditions governing your use of SolHerd. Provided as-is for educational and entertainment purposes.</p>
+                <a href="terms.html">Read Terms of Service &rarr;</a>
             </div>
-            <div class="feature">
-                <h3>Live Market Data</h3>
-                <p>USDA cattle market reports, regional prices, and auction summaries from public APIs.</p>
+            <div class="doc-card">
+                <h3>Copyright Notice</h3>
+                <p>Copyright ownership, third-party attributions for Solana, USDA, breed associations, and other data sources.</p>
+                <a href="copyright.html">Read Copyright Notice &rarr;</a>
             </div>
-            <div class="feature">
-                <h3>Price Estimator</h3>
-                <p>Hypothetical calf value estimates based on breed, weight, season, and market conditions.</p>
+            <div class="doc-card">
+                <h3>License</h3>
+                <p>Proprietary software license. SolHerd may not be redistributed, modified, or reverse-engineered.</p>
+                <a href="license.html">Read License &rarr;</a>
             </div>
-            <div class="feature">
-                <h3>EPD Dashboard</h3>
-                <p>Breed-average Expected Progeny Differences and economic index comparisons.</p>
+            <div class="doc-card">
+                <h3>Disclaimer &amp; Risk Disclosure</h3>
+                <p>Important disclaimers regarding data accuracy, breeding decisions, financial information, and veterinary guidance.</p>
+                <a href="disclaimer.html">Read Disclaimer &rarr;</a>
             </div>
-            <div class="feature">
-                <h3>Fully Private</h3>
-                <p>No accounts, no tracking, no analytics. All data stays on your device.</p>
+            <div class="doc-card">
+                <h3>Sanctions &amp; Restricted Regions</h3>
+                <p>List of 17 sanctioned and restricted regions where SolHerd is not available for use.</p>
+                <a href="sanctions.html">Read Sanctions Policy &rarr;</a>
             </div>
         </div>
-
-        <h3 style="color: #fff; margin-bottom: 12px;">Featured Breeds</h3>
-        <div class="breeds">
-            <span class="breed" style="border-color: #333;">Angus</span>
-            <span class="breed" style="border-color: #8B4513;">Hereford</span>
-            <span class="breed" style="border-color: #DAA520;">Simmental</span>
-            <span class="breed" style="border-color: #CD853F;">Charolais</span>
-            <span class="breed" style="border-color: #556B2F;">Limousin</span>
-            <span class="breed" style="border-color: #808080;">Brahman</span>
-            <span class="breed" style="border-color: #B22222;">Wagyu</span>
-            <span class="breed" style="border-color: #8B0000;">Red Angus</span>
-            <span class="breed" style="border-color: #D2691E;">Gelbvieh</span>
-            <span class="breed" style="border-color: #A0522D;">Nelore</span>
-        </div>
-
-        <div class="legal-links">
-            <a href="/privacy">Privacy Policy</a>
-            <a href="/terms">Terms of Service</a>
-            <a href="/disclaimer">Disclaimer &amp; Risk Disclosure</a>
-            <a href="/sanctions">Sanctions &amp; Restricted Regions</a>
-            <a href="/copyright">Copyright</a>
-            <a href="/license">License</a>
-        </div>
-
-        <div class="footer">
-            <p>&copy; 2026 SolHerd. All rights reserved.</p>
-            <p style="margin-top: 8px;">Contact: <a href="mailto:aardappvark@proton.me" style="color: #9945FF;">aardappvark@proton.me</a></p>
-        </div>
-    </div>
+    </main>
+    <footer>
+        <p>&copy; 2026 ADappvark. All rights reserved.</p>
+        <p>Contact: <a href="mailto:aardappvark@proton.me">aardappvark@proton.me</a></p>
+        <p>Last updated: February 2026</p>
+    </footer>
 </body>
 </html>

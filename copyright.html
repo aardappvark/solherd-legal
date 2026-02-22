@@ -3,133 +3,271 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Copyright Notice — SolHerd</title>
-    <meta name="description" content="Copyright notice and attributions for SolHerd.">
+    <title>Copyright Notice - SolHerd</title>
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif; background: #0A0A0E; color: #ccc; line-height: 1.7; }
-        .container { max-width: 720px; margin: 0 auto; padding: 48px 24px 80px; }
-        h1 { color: #9945FF; font-size: 32px; margin-bottom: 4px; }
-        .updated { color: #666; font-size: 13px; margin-bottom: 36px; display: block; }
-        h2 { color: #66BB6A; font-size: 18px; margin-top: 36px; margin-bottom: 12px; border-bottom: 1px solid #1a2e1a; padding-bottom: 8px; }
-        p { font-size: 15px; margin-bottom: 14px; }
-        ul, ol { margin: 8px 0 16px 24px; }
-        li { font-size: 15px; margin-bottom: 8px; }
+        body {
+            background-color: #0A0A0E;
+            color: #E0E0E0;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            line-height: 1.6;
+            min-height: 100vh;
+        }
+        header {
+            background: linear-gradient(135deg, #1a1a2e 0%, #0A0A0E 100%);
+            border-bottom: 2px solid #9945FF;
+            padding: 2rem 1rem;
+            text-align: center;
+        }
+        header h1 {
+            color: #14F195;
+            font-size: 2.5rem;
+            margin-bottom: 0.25rem;
+            letter-spacing: 1px;
+        }
+        header p {
+            color: #9945FF;
+            font-size: 1.1rem;
+        }
+        nav {
+            background-color: #111118;
+            padding: 0.75rem 1rem;
+            text-align: center;
+            border-bottom: 1px solid #222;
+        }
+        nav a {
+            color: #9945FF;
+            text-decoration: none;
+            margin: 0 0.75rem;
+            font-size: 0.95rem;
+            transition: color 0.2s;
+        }
+        nav a:hover { color: #14F195; }
+        nav a.active { color: #14F195; }
+        main {
+            max-width: 800px;
+            margin: 2rem auto;
+            padding: 0 1.5rem;
+        }
+        h2 {
+            color: #14F195;
+            font-size: 1.75rem;
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 1px solid #222;
+        }
+        h3 {
+            color: #9945FF;
+            font-size: 1.2rem;
+            margin-top: 2rem;
+            margin-bottom: 0.75rem;
+        }
+        p {
+            margin-bottom: 1rem;
+            color: #E0E0E0;
+        }
+        ul, ol {
+            margin-bottom: 1rem;
+            padding-left: 1.5rem;
+        }
+        li {
+            margin-bottom: 0.5rem;
+            color: #E0E0E0;
+        }
+        .highlight {
+            background-color: #111118;
+            border-left: 3px solid #14F195;
+            padding: 1rem 1.25rem;
+            margin: 1.5rem 0;
+            border-radius: 0 4px 4px 0;
+        }
+        .highlight p { margin-bottom: 0; }
+        .updated {
+            color: #666;
+            font-size: 0.9rem;
+            margin-bottom: 2rem;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1rem 0 1.5rem 0;
+        }
+        th {
+            background-color: #111118;
+            color: #9945FF;
+            text-align: left;
+            padding: 0.75rem 1rem;
+            border-bottom: 2px solid #9945FF;
+        }
+        td {
+            padding: 0.75rem 1rem;
+            border-bottom: 1px solid #222;
+        }
+        footer {
+            border-top: 1px solid #222;
+            padding: 1.5rem 1rem;
+            text-align: center;
+            color: #666;
+            font-size: 0.85rem;
+            margin-top: 3rem;
+        }
+        footer a {
+            color: #9945FF;
+            text-decoration: none;
+        }
+        footer a:hover { color: #14F195; }
         a { color: #9945FF; text-decoration: none; }
-        a:hover { text-decoration: underline; }
-        strong { color: #eee; }
-        .back { display: inline-block; margin-bottom: 24px; color: #888; font-size: 14px; }
-        .back:hover { color: #9945FF; }
-        table { width: 100%; border-collapse: collapse; margin: 16px 0; }
-        th { text-align: left; color: #66BB6A; font-size: 13px; text-transform: uppercase; letter-spacing: 0.5px; padding: 10px 12px; border-bottom: 1px solid #2a3e2a; }
-        td { padding: 10px 12px; border-bottom: 1px solid #1a2e1a; font-size: 14px; }
-        td:first-child { color: #fff; font-weight: 600; }
-        .footer { margin-top: 48px; padding-top: 24px; border-top: 1px solid #1a2e1a; color: #555; font-size: 13px; }
+        a:hover { color: #14F195; }
     </style>
 </head>
 <body>
-    <div class="container">
-        <a class="back" href="/">&larr; SolHerd</a>
-        <h1>Copyright Notice</h1>
-        <span class="updated">Effective date: 20 February 2026 &middot; Last updated: 20 February 2026</span>
+    <header>
+        <h1>SolHerd</h1>
+        <p>Cattle Breeding Intelligence</p>
+    </header>
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="privacy.html">Privacy</a>
+        <a href="terms.html">Terms</a>
+        <a href="copyright.html" class="active">Copyright</a>
+        <a href="license.html">License</a>
+        <a href="disclaimer.html">Disclaimer</a>
+        <a href="sanctions.html">Sanctions</a>
+    </nav>
+    <main>
+        <h2>Copyright Notice</h2>
+        <p class="updated">Last updated: February 2026</p>
 
-        <h2>1. Application Copyright</h2>
-        <p>&copy; 2026 SolHerd. All rights reserved.</p>
-        <p>The SolHerd application, including but not limited to its source code, object code, user interface design, visual design, graphics, icons, layout, colour schemes, text content, and documentation, is the original intellectual property of the developer and is protected by:</p>
+        <div class="highlight">
+            <p>&copy; 2026 ADappvark. All rights reserved.</p>
+        </div>
+
+        <h3>1. Copyright Ownership</h3>
+        <p>SolHerd and all of its original content, features, functionality, design, user interface, graphics, icons, and source code are the exclusive property of ADappvark and are protected by Australian and international copyright, trademark, and other intellectual property laws.</p>
+        <p>No part of SolHerd may be reproduced, distributed, modified, displayed, published, transmitted, or otherwise used without the prior written consent of ADappvark, except as expressly permitted in the <a href="license.html">License</a>.</p>
+
+        <h3>2. ADappvark Original Content</h3>
+        <p>The following elements are original works created by ADappvark and are subject to full copyright protection:</p>
         <ul>
-            <li>The <strong>Copyright Act 1968</strong> (Commonwealth of Australia)</li>
-            <li>The <strong>Berne Convention for the Protection of Literary and Artistic Works</strong></li>
-            <li>The <strong>Agreement on Trade-Related Aspects of Intellectual Property Rights</strong> (TRIPS Agreement)</li>
-            <li>The <strong>WIPO Copyright Treaty</strong> (WCT)</li>
-            <li>Applicable copyright laws of all signatory nations</li>
+            <li>Application source code and compiled binaries</li>
+            <li>User interface design, layout, and visual elements</li>
+            <li>App icons, graphics, and branding assets</li>
+            <li>Original text, descriptions, and documentation</li>
+            <li>Breeding pair calculator algorithms and logic</li>
+            <li>Herd management feature design and implementation</li>
+            <li>Data presentation, formatting, and display methods</li>
         </ul>
 
-        <h2>2. Breed Name and Agricultural Term Usage</h2>
-        <p>Cattle breed names (Angus, Hereford, Simmental, Charolais, Limousin, Brahman, Wagyu, etc.) are common names in the public domain used for identification purposes. Their use in the App does not imply any affiliation with or endorsement by any breed association or registry.</p>
-        <p>The following breed association names are trademarks or registered trademarks of their respective owners. Their mention in the App is for informational and attribution purposes only:</p>
+        <h3>3. Third-Party Trademarks and Attributions</h3>
+        <p>SolHerd references, integrates with, or displays data from various third-party services and organisations. All third-party trademarks, service marks, trade names, and intellectual property remain the property of their respective owners. The following attributions are provided:</p>
 
         <table>
             <thead>
                 <tr>
-                    <th>Organisation</th>
-                    <th>Country</th>
-                    <th>Attribution</th>
+                    <th>Name</th>
+                    <th>Owner / Organisation</th>
+                    <th>Usage in SolHerd</th>
                 </tr>
             </thead>
             <tbody>
-                <tr><td>American Angus Association</td><td>US</td><td>Breed-average EPD data sourced from publicly published evaluation summaries</td></tr>
-                <tr><td>American Hereford Association</td><td>US</td><td>Breed-average EPD data sourced from publicly published evaluation summaries</td></tr>
-                <tr><td>American Simmental Association</td><td>US</td><td>Breed-average EPD data sourced from publicly published evaluation summaries</td></tr>
-                <tr><td>American-International Charolais Association</td><td>US</td><td>Breed-average EPD data sourced from publicly published evaluation summaries</td></tr>
-                <tr><td>North American Limousin Foundation</td><td>US</td><td>Breed-average EPD data sourced from publicly published evaluation summaries</td></tr>
-                <tr><td>American Brahman Breeders Association</td><td>US</td><td>Breed-average EPD data sourced from publicly published evaluation summaries</td></tr>
-                <tr><td>American Wagyu Association</td><td>US</td><td>General breed information from public sources</td></tr>
-                <tr><td>Red Angus Association of America</td><td>US</td><td>Breed-average EPD data sourced from publicly published evaluation summaries</td></tr>
-                <tr><td>American Gelbvieh Association</td><td>US</td><td>Breed-average EPD data sourced from publicly published evaluation summaries</td></tr>
+                <tr>
+                    <td>Solana</td>
+                    <td>Solana Foundation / Solana Labs</td>
+                    <td>Blockchain platform; SIWS authentication via Mobile Wallet Adapter</td>
+                </tr>
+                <tr>
+                    <td>Solana Mobile Wallet Adapter</td>
+                    <td>Solana Mobile Inc.</td>
+                    <td>Sign In With Solana (SIWS) protocol implementation</td>
+                </tr>
+                <tr>
+                    <td>Seeker / Saga</td>
+                    <td>Solana Mobile Inc.</td>
+                    <td>Hardware device and dApp Store distribution platform</td>
+                </tr>
+                <tr>
+                    <td>USDA Market Data</td>
+                    <td>United States Department of Agriculture</td>
+                    <td>Cattle market pricing and auction data</td>
+                </tr>
+                <tr>
+                    <td>IBGE SIDRA</td>
+                    <td>Instituto Brasileiro de Geografia e Estat&iacute;stica</td>
+                    <td>Brazilian cattle market and production data</td>
+                </tr>
+                <tr>
+                    <td>Eurostat</td>
+                    <td>European Commission</td>
+                    <td>European cattle market and agricultural data</td>
+                </tr>
+                <tr>
+                    <td>World Bank Open Data</td>
+                    <td>The World Bank Group</td>
+                    <td>Global agricultural and economic data</td>
+                </tr>
+                <tr>
+                    <td>Android</td>
+                    <td>Google LLC</td>
+                    <td>Operating system platform</td>
+                </tr>
+                <tr>
+                    <td>Kotlin</td>
+                    <td>JetBrains s.r.o.</td>
+                    <td>Programming language</td>
+                </tr>
+                <tr>
+                    <td>Jetpack Compose</td>
+                    <td>Google LLC</td>
+                    <td>UI toolkit framework</td>
+                </tr>
             </tbody>
         </table>
 
-        <h2>3. No Affiliation</h2>
-        <p>SolHerd is an <strong>independent, third-party application</strong>. It is:</p>
+        <h3>4. Breed Association Data</h3>
+        <p>SolHerd displays breed-average EPD (Expected Progeny Difference) data sourced from publicly published summaries by various breed associations. This data is used for educational and reference purposes. The breed associations referenced may include, but are not limited to:</p>
         <ul>
-            <li>Not affiliated with any of the breed associations listed above</li>
-            <li>Not endorsed by, licensed by, or partnered with any breed association or livestock registry</li>
-            <li>Not sponsored by or financially connected to any breed association or livestock organisation</li>
-            <li>Not affiliated with the Solana Foundation, Solana Labs, or Solana Mobile Inc.</li>
-            <li>Not affiliated with the USDA, IBGE, Eurostat, or any government agency</li>
-            <li>Not affiliated with any livestock exchange, auction house, broker, or financial institution</li>
+            <li>American Angus Association</li>
+            <li>American Hereford Association</li>
+            <li>American Simmental Association</li>
+            <li>American Brahman Breeders Association</li>
+            <li>American Gelbvieh Association</li>
+            <li>Red Angus Association of America</li>
+            <li>North American Limousin Foundation</li>
+            <li>American Shorthorn Association</li>
+            <li>American International Charolais Association</li>
+            <li>Santa Gertrudis Breeders International</li>
+            <li>International Brangus Breeders Association</li>
+            <li>Beefmaster Breeders United</li>
         </ul>
+        <p>All breed names, association names, and related marks are trademarks or registered trademarks of their respective organisations. SolHerd is not affiliated with, endorsed by, or sponsored by any of these breed associations.</p>
 
-        <h2>4. Data Source Attribution</h2>
-        <p>Market data and statistical information displayed in the App is sourced from the following government and public services, used in accordance with their respective data use policies:</p>
+        <h3>5. Government Data</h3>
+        <p>Market data sourced from USDA, IBGE SIDRA, Eurostat, and World Bank is publicly available government or institutional data. The use of this data does not imply endorsement, affiliation, or sponsorship by any government agency or institution. This data is reproduced and displayed in accordance with the respective open data policies of these organisations.</p>
+
+        <h3>6. Open-Source Components</h3>
+        <p>SolHerd may incorporate open-source software libraries and components. Each open-source component is subject to its own licence terms. The use of open-source components does not affect the proprietary nature of SolHerd's original code and content. A list of open-source dependencies and their respective licences is available within the App's build configuration.</p>
+
+        <h3>7. DMCA and Copyright Infringement</h3>
+        <p>ADappvark respects the intellectual property rights of others. If you believe that any content within SolHerd infringes upon your copyright, please contact us with the following information:</p>
         <ul>
-            <li><strong>USDA Agricultural Marketing Service</strong> &mdash; <a href="https://marketnews.usda.gov">marketnews.usda.gov</a> (United States Department of Agriculture)</li>
-            <li><strong>USDA NASS Quick Stats</strong> &mdash; <a href="https://quickstats.nass.usda.gov">quickstats.nass.usda.gov</a> (United States Department of Agriculture)</li>
-            <li><strong>IBGE SIDRA</strong> &mdash; <a href="https://sidra.ibge.gov.br">sidra.ibge.gov.br</a> (Brazilian Institute of Geography and Statistics)</li>
-            <li><strong>Eurostat</strong> &mdash; <a href="https://ec.europa.eu/eurostat">ec.europa.eu/eurostat</a> (European Commission)</li>
-        </ul>
-        <p>Breed-average EPD data is derived from publicly published breed evaluation summaries made available by the respective breed associations on their public websites. This data is used for informational and educational purposes consistent with fair use principles.</p>
-
-        <h2>5. Open Source Components</h2>
-        <p>The App incorporates open source software components licensed under the Apache License 2.0. See our <a href="/license">License page</a> for a full list of open source components and the complete Apache License 2.0 text.</p>
-
-        <h2>6. Permitted Use of Our Content</h2>
-        <p>You may:</p>
-        <ul>
-            <li>Use the App as provided through the Solana Seeker dApp Store for personal use</li>
-            <li>Reference SolHerd by name in reviews, articles, or discussions</li>
-            <li>Link to this website or our dApp Store listing</li>
-        </ul>
-        <p>You may not, without our prior written consent:</p>
-        <ul>
-            <li>Reproduce, distribute, or create derivative works of the App or its content</li>
-            <li>Use the SolHerd name, logo, or brand elements in any commercial context</li>
-            <li>Imply any affiliation with or endorsement by SolHerd</li>
-            <li>Extract or scrape content from the App for any purpose</li>
-        </ul>
-
-        <h2>7. DMCA / Copyright Infringement Claims</h2>
-        <p>We respect the intellectual property rights of others. If you believe that any content accessible through SolHerd infringes your copyright, please provide us with the following information in writing:</p>
-        <ol>
             <li>A description of the copyrighted work you claim has been infringed</li>
-            <li>A description of where the allegedly infringing material is located within the App</li>
+            <li>A description of where the alleged infringing material is located within the App</li>
             <li>Your contact information (name, address, email, phone number)</li>
-            <li>A statement that you have a good faith belief that the use is not authorised by the copyright owner, its agent, or the law</li>
-            <li>A statement, under penalty of perjury, that the information in your notice is accurate and that you are the copyright owner or authorised to act on their behalf</li>
-            <li>Your physical or electronic signature</li>
-        </ol>
-        <p>Send copyright infringement notices to: <a href="mailto:aardappvark@proton.me">aardappvark@proton.me</a></p>
-        <p>We will respond to valid copyright infringement claims in accordance with the <strong>Digital Millennium Copyright Act</strong> (DMCA), the <strong>Australian Copyright Act 1968</strong>, and applicable international copyright treaties.</p>
+            <li>A statement that you have a good-faith belief that the use is not authorised</li>
+            <li>A statement, under penalty of perjury, that the information in your notice is accurate and that you are the copyright owner or authorised to act on behalf of the owner</li>
+        </ul>
+        <p>Please send copyright infringement notices to: <a href="mailto:aardappvark@proton.me">aardappvark@proton.me</a></p>
 
-        <h2>8. Contact</h2>
-        <p>For copyright enquiries, contact:</p>
-        <p>SolHerd &mdash; Copyright Enquiries<br>
-        Email: <a href="mailto:aardappvark@proton.me">aardappvark@proton.me</a></p>
-
-        <div class="footer">
-            <p>&copy; 2026 SolHerd. All rights reserved.</p>
-            <p style="margin-top: 8px;"><a href="/">Home</a> &middot; <a href="/privacy">Privacy</a> &middot; <a href="/terms">Terms</a> &middot; <a href="/disclaimer">Disclaimer</a> &middot; <a href="/sanctions">Sanctions</a> &middot; <a href="/copyright">Copyright</a> &middot; <a href="/license">License</a></p>
-        </div>
-    </div>
+        <h3>8. Contact</h3>
+        <p>For questions regarding copyright, trademarks, or intellectual property matters related to SolHerd, please contact:</p>
+        <p><strong>Email:</strong> <a href="mailto:aardappvark@proton.me">aardappvark@proton.me</a></p>
+        <p><strong>Developer:</strong> ADappvark</p>
+        <p><strong>Jurisdiction:</strong> New South Wales, Australia</p>
+    </main>
+    <footer>
+        <p>&copy; 2026 ADappvark. All rights reserved.</p>
+        <p>Contact: <a href="mailto:aardappvark@proton.me">aardappvark@proton.me</a></p>
+        <p>Last updated: February 2026</p>
+    </footer>
 </body>
 </html>
