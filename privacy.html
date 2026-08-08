@@ -118,10 +118,10 @@
     </nav>
     <main>
         <h2>Privacy Policy</h2>
-        <p class="updated">Last updated: February 2026</p>
+        <p class="updated">Last updated: 7 August 2026</p>
 
         <div class="highlight">
-            <p><strong>Summary:</strong> SolHerd does not collect, store, transmit, or share any personally identifiable information (PII). All application data is stored locally on your device only.</p>
+            <p><strong>Summary:</strong> SolHerd has no accounts, no analytics and no server of ours. Your herd records stay on your device. The App does fetch public market data from government APIs, and &mdash; only if you connect a wallet &mdash; sends your wallet's public address to a public Solana RPC endpoint. It charges nothing.</p>
         </div>
 
         <h3>1. Introduction</h3>
@@ -129,45 +129,60 @@
         <p>SolHerd is distributed exclusively via the Solana Seeker dApp Store.</p>
 
         <h3>2. Information We Do Not Collect</h3>
-        <p>SolHerd does <strong>not</strong> collect any of the following:</p>
+        <p>SolHerd never transmits any of the following to us or to any third party, and we operate no server that could receive it:</p>
         <ul>
             <li>Names, email addresses, or other personal identifiers</li>
-            <li>Location data or GPS coordinates</li>
+            <li>GPS coordinates or precise location</li>
             <li>Device identifiers, advertising IDs, or fingerprints</li>
             <li>Usage analytics or behavioural tracking data</li>
-            <li>Photographs, contacts, or media files</li>
-            <li>Financial information, cryptocurrency balances, or transaction history</li>
+            <li>Your contacts</li>
+            <li>Payment information (the App is free and contains no purchases)</li>
             <li>Health, biometric, or sensitive personal data</li>
             <li>Cookies or web tracking technologies</li>
+        </ul>
+        <p>Two things need stating precisely rather than as a blanket "we collect nothing":</p>
+        <ul>
+            <li><strong>Animal photos.</strong> If you attach a photo to an animal, the App copies that image from your gallery into its own private storage on your device. It is never uploaded.</li>
+            <li><strong>Country code.</strong> The App reads a country code from your SIM, mobile network and device locale, on-device only, for sanctions screening and to choose metric or imperial units. See Section 12.</li>
         </ul>
 
         <h3>3. On-Device Data Storage</h3>
         <p>All data you enter into SolHerd (including herd records, breeding pairs, notes, and preferences) is stored exclusively on your device using Android SharedPreferences. This data:</p>
         <ul>
-            <li>Never leaves your device</li>
-            <li>Is not transmitted to any server, cloud service, or third party</li>
-            <li>Is not backed up to any external service by the App</li>
+            <li>Is never uploaded to us &mdash; there is no SolHerd account or server</li>
+            <li>Is not transmitted to any cloud service or third party</li>
+            <li>Is not backed up to any external service. Android Backup is disabled for SolHerd (<code>allowBackup="false"</code>), so nothing is copied into a Google backup and nothing survives uninstalling</li>
             <li>Is deleted when you uninstall the App or clear the App's data</li>
         </ul>
+        <p>Alongside your herd records, the App also stores locally: animal photos you attach; your wallet's public address and label if you connect one; your consent record (the message you accepted, its SHA-256 hash, and the Ed25519 signature and wallet address if you signed with a wallet); the hash and signature of any herd attestation you sign; and your unit and reminder preferences. Settings lets you export or erase your consent record and clear all herd data.</p>
 
         <h3>4. Sign In With Solana (SIWS)</h3>
         <p>SolHerd uses the Solana Mobile Wallet Adapter (MWA) protocol for Sign In With Solana (SIWS). This authentication method:</p>
         <ul>
-            <li>Is used solely for identity verification within the dApp Store ecosystem</li>
-            <li>Is <strong>read-only</strong> &mdash; SolHerd does not initiate, sign, or submit any blockchain transactions</li>
-            <li>Does not access your wallet balance, token holdings, or transaction history</li>
-            <li>Does not store your wallet address, public key, or any cryptographic material</li>
+            <li>Is entirely optional &mdash; the whole App works if you choose "Continue without wallet"</li>
+            <li>Submits <strong>no blockchain transaction</strong>, moves no funds or tokens, and pays no network fee</li>
+            <li>Does ask your wallet to <strong>sign messages</strong>: your Terms/Privacy/EULA consent statement, and any herd attestation you request. Signing a message is not a transaction</li>
+            <li><strong>Reads your wallet's token accounts</strong> through a public Solana RPC endpoint in order to determine whether you hold a Seeker Genesis Token. Your wallet's public address is sent in that request. Your balances are neither stored nor displayed</li>
+            <li><strong>Stores your wallet's public address on your device</strong>, together with the signed consent message, its hash and the signature, as your record of consent. You can export or erase this from Settings</li>
+            <li>Never sees or requests your private keys or seed phrase, which never leave your wallet app</li>
             <li>Does not request or receive permission to move, transfer, or modify any assets</li>
         </ul>
 
-        <h3>5. Market Data Sources</h3>
-        <p>SolHerd displays cattle market data sourced from publicly available government and institutional databases, including USDA, IBGE SIDRA, Eurostat, and the World Bank. These data requests:</p>
+        <h3>5. Network Requests and Endpoints</h3>
+        <p>SolHerd is not an offline-only app. It contacts exactly these hosts, directly from your device:</p>
         <ul>
-            <li>Are made directly from your device to the respective public data APIs</li>
-            <li>Do not pass through any ADappvark server or proxy</li>
-            <li>Do not include any identifying information about you or your device</li>
+            <li><strong>mpr.datamart.ams.usda.gov</strong> &mdash; USDA Livestock Mandatory Reporting Datamart (United States cattle market reports)</li>
+            <li><strong>apisidra.ibge.gov.br</strong> &mdash; IBGE SIDRA (Brazilian cattle slaughter statistics)</li>
+            <li><strong>api.worldbank.org</strong> &mdash; World Bank Open Data (the livestock production index in the global overview)</li>
+            <li><strong>api.mainnet-beta.solana.com</strong> &mdash; a public Solana RPC endpoint, contacted <em>only</em> when you connect a wallet, to check Seeker Genesis Token status. That request carries your wallet's public address</li>
         </ul>
-        <p>Please refer to the privacy policies of these respective data providers for information on how they handle API requests.</p>
+        <ul>
+            <li>All requests go directly from your device to those public APIs</li>
+            <li>None pass through any ADappvark server or proxy &mdash; we operate none</li>
+            <li>The market and World Bank requests carry nothing identifying you or your device</li>
+            <li>Every host you contact, including the Solana RPC provider, necessarily receives your IP address</li>
+        </ul>
+        <p>Live price reports cover the United States and Brazil only. Other regions display World Bank production indices plus a link to the publisher's own website; the European Union view uses Germany's series as a labelled proxy, because the World Bank publishes no usable EU-wide value for this index. Please refer to the privacy policies of these data providers for how they handle API requests.</p>
 
         <h3>6. Breed Data</h3>
         <p>Breed data and Expected Progeny Difference (EPD) information displayed within SolHerd is sourced from publicly published breed-average EPD summaries provided by various breed associations. This data is bundled within the App and does not require network requests to access.</p>
@@ -189,15 +204,24 @@
         <p>Since SolHerd does not collect or transmit any personal data, the primary security consideration is the on-device storage of your herd data. This data is stored within the App's private storage area on your Android device, which is protected by the Android operating system's application sandboxing. We recommend that you secure your device with a screen lock to protect locally stored data.</p>
 
         <h3>10. Your Rights</h3>
-        <p>Because SolHerd does not collect personal information, traditional data subject rights (access, correction, deletion, portability) are inherently satisfied. You have full control over all data stored by the App on your device, and you may delete it at any time by clearing the App's data or uninstalling the App.</p>
+        <p>Because SolHerd sends no personal information to us, we hold nothing for you to access, correct or delete. You control everything the App stores, on your device:</p>
+        <ul>
+            <li><strong>Access / portability:</strong> Settings &rarr; Backup &amp; Restore exports your full herd as JSON or CSV. Settings &rarr; Your Consent Record exports your consent record, including its signature, as JSON.</li>
+            <li><strong>Erasure:</strong> Settings &rarr; Herd Data &rarr; Clear All Herd Data deletes every animal record and its photos. Settings &rarr; Your Consent Record &rarr; Erase Consent Record deletes your acceptance record. Uninstalling removes everything.</li>
+            <li><strong>Withdrawing consent:</strong> erasing the consent record means the App asks you to accept the terms again on next launch.</li>
+        </ul>
 
         <h3>11. International Users</h3>
-        <p>SolHerd is not available in sanctioned or restricted regions. Please refer to our <a href="sanctions.html" style="color: #9945FF;">Sanctions &amp; Restricted Regions</a> page for details. Since no data is collected or transmitted, there are no cross-border data transfer concerns.</p>
+        <p>SolHerd is not available in 17 sanctioned or restricted jurisdictions. Please refer to our <a href="sanctions.html" style="color: #9945FF;">Sanctions &amp; Restricted Regions</a> page for the complete list. Since we collect no personal data there are no cross-border transfer concerns arising from us; requests you make to the public APIs in Section 5 go directly to those providers.</p>
 
-        <h3>12. Changes to This Privacy Policy</h3>
+        <h3>12. On-Device Region Screening</h3>
+        <p>To comply with sanctions and export-control law, and to select metric or imperial units, SolHerd reads a <strong>country code</strong> from your SIM card, your mobile network and your device locale. This is a country-level signal only &mdash; not GPS, not an address, not a precise location.</p>
+        <p>The check runs <strong>entirely on your device</strong>. The country code is never transmitted, never stored and never shared. If it cannot be determined, the App allows access. The blocked jurisdictions are listed in the <a href="sanctions.html" style="color: #9945FF;">Sanctions &amp; Restricted Regions</a> policy.</p>
+
+        <h3>13. Changes to This Privacy Policy</h3>
         <p>We may update this Privacy Policy from time to time. Any changes will be reflected on this page with an updated "Last updated" date. We encourage you to review this policy periodically. Continued use of SolHerd after changes constitutes acceptance of the updated policy.</p>
 
-        <h3>13. Contact Us</h3>
+        <h3>14. Contact Us</h3>
         <p>If you have any questions or concerns about this Privacy Policy or SolHerd's data practices, please contact us at:</p>
         <p><strong>Email:</strong> <a href="mailto:aardappvark@proton.me" style="color: #9945FF;">aardappvark@proton.me</a></p>
         <p><strong>Developer:</strong> ADappvark</p>
@@ -206,7 +230,7 @@
     <footer>
         <p>&copy; 2026 ADappvark. All rights reserved.</p>
         <p>Contact: <a href="mailto:aardappvark@proton.me">aardappvark@proton.me</a></p>
-        <p>Last updated: February 2026</p>
+        <p>Last updated: 7 August 2026</p>
     </footer>
 </body>
 </html>
