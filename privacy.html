@@ -121,7 +121,7 @@
         <p class="updated">Last updated: 7 August 2026</p>
 
         <div class="highlight">
-            <p><strong>Summary:</strong> SolHerd has no accounts, no analytics and no server of ours. Your herd records stay on your device. The App does fetch public market data from government APIs, and &mdash; only if you connect a wallet &mdash; sends your wallet's public address to a public Solana RPC endpoint. It charges nothing.</p>
+            <p><strong>Summary:</strong> SolHerd has no accounts and holds nothing about you on any server. Your herd records stay on your device. The App fetches public market data from government APIs; sends anonymous, aggregate usage counts to one endpoint of ours &mdash; an event name and nothing else, switchable off in Settings; and &mdash; only if you connect a wallet &mdash; sends your wallet's public address to a public Solana RPC endpoint. It charges nothing.</p>
         </div>
 
         <h3>1. Introduction</h3>
@@ -129,12 +129,12 @@
         <p>SolHerd is distributed exclusively via the Solana Seeker dApp Store.</p>
 
         <h3>2. Information We Do Not Collect</h3>
-        <p>SolHerd never transmits any of the following to us or to any third party, and we operate no server that could receive it:</p>
+        <p>SolHerd never transmits any of the following to us or to any third party. The single endpoint we do run, described in section 5a, receives one event name per request and could not accept any of it:</p>
         <ul>
             <li>Names, email addresses, or other personal identifiers</li>
             <li>GPS coordinates or precise location</li>
             <li>Device identifiers, advertising IDs, or fingerprints</li>
-            <li>Usage analytics or behavioural tracking data</li>
+            <li>Behavioural tracking data, profiles or session histories (the anonymous per-day event counts in section 5a identify no user and no session)</li>
             <li>Your contacts</li>
             <li>Payment information (the App is free and contains no purchases)</li>
             <li>Health, biometric, or sensitive personal data</li>
@@ -175,22 +175,45 @@
             <li><strong>apisidra.ibge.gov.br</strong> &mdash; IBGE SIDRA (Brazilian cattle slaughter statistics)</li>
             <li><strong>api.worldbank.org</strong> &mdash; World Bank Open Data (the livestock production index in the global overview)</li>
             <li><strong>api.mainnet-beta.solana.com</strong> &mdash; a public Solana RPC endpoint, contacted <em>only</em> when you connect a wallet, to check Seeker Genesis Token status. That request carries your wallet's public address</li>
+            <li><strong>solherd-analytics.vercel.app</strong> &mdash; an endpoint we operate, for anonymous aggregate usage counts. See section 5a</li>
         </ul>
         <ul>
             <li>All requests go directly from your device to those public APIs</li>
-            <li>None pass through any ADappvark server or proxy &mdash; we operate none</li>
+            <li>None pass through any ADappvark proxy. The one endpoint we operate is the analytics endpoint above, and it receives only an event name</li>
             <li>The market and World Bank requests carry nothing identifying you or your device</li>
             <li>Every host you contact, including the Solana RPC provider, necessarily receives your IP address</li>
         </ul>
         <p>Live price reports cover the United States and Brazil only. Other regions display World Bank production indices plus a link to the publisher's own website; the European Union view uses Germany's series as a labelled proxy, because the World Bank publishes no usable EU-wide value for this index. Please refer to the privacy policies of these data providers for how they handle API requests.</p>
 
+        <h3 id="analytics">5a. Anonymous Analytics</h3>
+        <p>SolHerd sends anonymous, aggregate usage counts to a single endpoint we operate,
+        <strong>solherd-analytics.vercel.app</strong>, so we can see which features are actually used
+        and roughly where the App is used.</p>
+        <p><strong>What is sent.</strong> The entire request body is one event name, for example
+        <code>{"event_type":"animal_added"}</code>. That is the whole payload. It contains no animal
+        record, tag, breed, weight, photo, EPD figure, pairing score, valuation, wallet address, device
+        or advertising identifier, install id, session id or location.</p>
+        <p><strong>What is derived.</strong> Our host records the request's approximate country (derived
+        by the hosting provider from the connection) and the date, and keeps a running count per event
+        name, per country, per day. IP addresses are not stored. Because the request carries no
+        identifier, the counts cannot be tied to you, to your device, or to each other.</p>
+        <p><strong>How to switch it off.</strong> <strong>Settings &gt; Anonymous analytics.</strong>
+        While it is off, the App sends nothing to this endpoint at all. No feature depends on it.</p>
+        <p><strong>Legal basis (GDPR).</strong> Legitimate interest (Art. 6(1)(f)) in understanding
+        aggregate product usage. The data is anonymous rather than pseudonymous &mdash; it carries no
+        identifier that could single you out, so it is not personal data within the meaning of
+        Art. 4(1). The off switch is provided regardless.</p>
+        <p><strong>Retention.</strong> Aggregate counts are kept indefinitely, since they describe
+        events rather than people. No raw request log is retained.</p>
+
         <h3>6. Breed Data</h3>
         <p>Breed data and Expected Progeny Difference (EPD) information displayed within SolHerd is sourced from publicly published breed-average EPD summaries provided by various breed associations. This data is bundled within the App and does not require network requests to access.</p>
 
         <h3>7. Third-Party Services</h3>
-        <p>SolHerd does not integrate with any third-party analytics, advertising, crash reporting, or tracking services. We do not use:</p>
+        <p>SolHerd integrates no third-party analytics SDK, advertising network, crash reporter or tracking service. The anonymous counts in section 5a go to an endpoint we run ourselves, not to a third party, and use no SDK. We do not use:</p>
         <ul>
             <li>Google Analytics, Firebase Analytics, or similar analytics platforms</li>
+            <li>Any analytics product that receives an identifier, a profile or a session</li>
             <li>Advertising networks or ad SDKs</li>
             <li>Crash reporting services (such as Crashlytics or Sentry)</li>
             <li>Social media SDKs or login services (other than SIWS)</li>
