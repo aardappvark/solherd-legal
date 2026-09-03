@@ -121,7 +121,7 @@
         <p class="updated">Last updated: 7 August 2026</p>
 
         <div class="highlight">
-            <p><strong>Summary:</strong> SolHerd has no accounts and holds nothing about you on any server. Your herd records stay on your device. The App fetches public market data from government APIs; sends anonymous, aggregate usage counts to one endpoint of ours &mdash; an event name and nothing else, switchable off in Settings; and &mdash; only if you connect a wallet &mdash; sends your wallet's public address to a public Solana RPC endpoint. It charges nothing.</p>
+            <p><strong>Summary:</strong> SolHerd has no accounts and holds nothing about you on any server. Your herd records stay on your device. The App fetches public market data from government APIs; sends anonymous, aggregate usage counts to one endpoint of ours &mdash; an event name and nothing else, switchable off in Settings; and &mdash; only if you connect a wallet &mdash; sends your wallet's public address to a public Solana RPC endpoint. It charges nothing unless you choose to buy an optional tier.</p>
         </div>
 
         <h3>1. Introduction</h3>
@@ -136,7 +136,7 @@
             <li>Device identifiers, advertising IDs, or fingerprints</li>
             <li>Behavioural tracking data, profiles or session histories (the anonymous per-day event counts in section 5a identify no user and no session)</li>
             <li>Your contacts</li>
-            <li>Payment information (the App is free and contains no purchases)</li>
+            <li>Payment information &mdash; we never see a card, a bank account or your wallet's private key. If you buy a tier, the only record is the public on-chain transfer described under <strong>Purchases</strong>.</li>
             <li>Health, biometric, or sensitive personal data</li>
             <li>Cookies or web tracking technologies</li>
         </ul>
@@ -160,7 +160,7 @@
         <p>SolHerd uses the Solana Mobile Wallet Adapter (MWA) protocol for Sign In With Solana (SIWS). This authentication method:</p>
         <ul>
             <li>Is entirely optional &mdash; the whole App works if you choose "Continue without wallet"</li>
-            <li>Submits <strong>no blockchain transaction</strong>, moves no funds or tokens, and pays no network fee</li>
+            <li>Submits <strong>no blockchain transaction</strong> for sign-in or attestation, moves no funds or tokens, and pays no network fee. The only transaction SolHerd ever asks your wallet to sign is the one you start yourself when buying an optional Herdsman or Rancher tier on the Pro tab &mdash; see <strong>Purchases</strong> below.</li>
             <li>Does ask your wallet to <strong>sign messages</strong>: your Terms/Privacy/EULA consent statement, and any herd attestation you request. Signing a message is not a transaction</li>
             <li><strong>Reads your wallet's token accounts</strong> through a public Solana RPC endpoint in order to determine whether you hold a Seeker Genesis Token. Your wallet's public address is sent in that request. Your balances are neither stored nor displayed</li>
             <li><strong>Stores your wallet's public address on your device</strong>, together with the signed consent message, its hash and the signature, as your record of consent. You can export or erase this from Settings</li>
@@ -168,7 +168,9 @@
             <li>Does not request or receive permission to move, transfer, or modify any assets</li>
         </ul>
 
-        <h3>5. Network Requests and Endpoints</h3>
+        <h3>4A. Purchases</h3>
+<p>If you buy a Herdsman or Rancher tier, SolHerd asks your wallet to sign a single transfer of SOL or SKR from your wallet to our treasury address <code>DD4aPDhf396NhNDxa4PBVf1u3uzCUP2QYm2dFMmJWq2Q</code>. The transaction carries a per-app reference account and a short memo (<code>SHD</code>) so we can tell it was for SolHerd. Like every Solana transaction, it is public and permanent: anyone can see that your wallet address paid our treasury this amount at this time. We do not collect anything beyond what the blockchain already records, we never hold your keys or funds, and no account is created. To restore a purchase on another device, the app reads your wallet's own transaction history from a public RPC endpoint; that request carries your wallet address and nothing else.</p>
+<h3>5. Network Requests and Endpoints</h3>
         <p>SolHerd is not an offline-only app. It contacts exactly these hosts, directly from your device:</p>
         <ul>
             <li><strong>mpr.datamart.ams.usda.gov</strong> &mdash; USDA Livestock Mandatory Reporting Datamart (United States cattle market reports)</li>
@@ -250,7 +252,84 @@
         <p><strong>Developer:</strong> ADappvark</p>
         <p><strong>Jurisdiction:</strong> New South Wales, Australia</p>
     </main>
-    <footer>
+    
+<!-- eu-gdpr-block v1 -->
+<h2>European Union and EEA Users &mdash; GDPR</h2>
+<p>This section applies if you are in the European Union or the European Economic Area, and explains
+how Regulation (EU) 2016/679 (GDPR) applies to SolHerd.</p>
+
+<h3>Controller</h3>
+<p>MidMightBit Games, a sole trader established in Australia, is the data controller. Contact:
+<a href="mailto:aardappvark@proton.me">aardappvark@proton.me</a>. We have not appointed a Data Protection Officer; we are not
+required to.</p>
+
+<h3>Representative in the Union (Article 27)</h3>
+<p>We have not designated a representative in the Union. We rely on the exemption in Article 27(2)(a):
+our processing of EU personal data is occasional, does not include large-scale processing of special
+categories of data under Article 9 or data relating to criminal convictions under Article 10, and is
+unlikely to result in a risk to the rights and freedoms of natural persons. You can contact us
+directly at <a href="mailto:aardappvark@proton.me">aardappvark@proton.me</a> about any GDPR matter, and we answer in English.</p>
+
+<h3>What we process, and on what legal basis</h3>
+<ul>
+<li><strong>Data held on your device</strong> (your settings, your content, and any wallet public
+address you connect) &mdash; processed to perform the contract with you, Article 6(1)(b). This stays
+in app-private storage on your device. We do not receive it and cannot read it.</li>
+<li><strong>Anonymous usage counts</strong> &mdash; an event name, with an approximate country derived
+at the network edge, aggregated per day. Basis: our legitimate interest in understanding how many people use the App and roughly where (Article 6(1)(f)), which you can object to at any time using the control in the App's Settings screen. Because the counts carry no
+identifier and cannot be linked to you or to each other, we treat the stored result as anonymous
+statistical data within the meaning of Recital 26.</li>
+<li><strong>Sanctions and region screening</strong> &mdash; carried out on your device to comply with
+legal obligations to which we are subject, Article 6(1)(c), and our legitimate interest in not
+supplying restricted jurisdictions, Article 6(1)(f). The result is a yes or no evaluated on your
+device; it is not stored by us and never transmitted.</li>
+<li><strong>Blockchain interactions</strong> &mdash; if you connect a wallet or make a payment, your
+wallet's public address is sent to public Solana RPC providers to read on-chain state or submit your
+signed transaction. That is necessary to perform the contract, Article 6(1)(b). Anything you write to
+a public blockchain is permanent, public, and outside our control &mdash; it cannot be erased or
+rectified by us or by anyone.</li>
+</ul>
+<p>You can stop this processing at any time from the App's Settings screen, where the privacy section carries the control. Turning it off stops all event sending immediately.</p>
+
+<h3>Storage on and access to your device (ePrivacy, Article 5(3))</h3>
+<p>SolHerd stores settings on your device using Android's app-private storage. That storage is strictly
+necessary to provide the service you asked for, so it does not require separate consent. The App sets
+no cookies, uses no advertising identifier, no device fingerprinting and no third-party analytics SDK,
+and does not read information stored on your device for any purpose other than running the App.</p>
+
+<h3>Transfers outside the EEA</h3>
+<p>We are established in Australia, so where we receive anything it is processed in Australia.
+Australia is not the subject of an adequacy decision under Article 45. Our analytics endpoint is
+operated for us in the United States by our hosting provider. The transferred payload is a single
+event name and contains no identifier and no personal data, so in our assessment Chapter V is not
+engaged by it; to the extent it is, we rely on Article 46(2)(c) standard contractual clauses with our
+provider, or the EU&ndash;US Data Privacy Framework where that provider is certified. Public Solana RPC
+providers you interact with may be located outside the EEA and receive your IP address and wallet
+public address as an unavoidable part of any internet request.</p>
+
+<h3>Retention</h3>
+<p>Data on your device is kept until you delete it, clear the App's data, or uninstall the App.
+Aggregate daily counters hold no personal data and are kept indefinitely as statistics. We operate no
+user accounts and hold no profile of you.</p>
+
+<h3>Your rights</h3>
+<p>You have the rights of access (Article 15), rectification (16), erasure (17), restriction (18),
+data portability (20) and objection (21), and the right to withdraw consent at any time where consent
+is the basis. Because your data lives on your device and we hold no identifier for you, you exercise
+most of these directly: the data is visible in the App, and clearing the App's data or uninstalling it
+erases it. For anything else, email <a href="mailto:aardappvark@proton.me">aardappvark@proton.me</a> &mdash; we respond within one
+month, free of charge.</p>
+<p>There is no automated decision-making producing legal or similarly significant effects, and no
+profiling within the meaning of Article 22.</p>
+
+<h3>Complaints</h3>
+<p>You have the right to lodge a complaint with the supervisory authority of your Member State of
+residence, place of work, or of the alleged infringement (Article 77). A list is published by the
+European Data Protection Board at
+<a href="https://www.edpb.europa.eu/about-edpb/about-edpb/members_en">edpb.europa.eu</a>. We would
+appreciate the chance to resolve it first.</p>
+
+<footer>
         <p>&copy; 2026 ADappvark. All rights reserved.</p>
         <p>Contact: <a href="mailto:aardappvark@proton.me">aardappvark@proton.me</a></p>
         <p>Last updated: 7 August 2026</p>
