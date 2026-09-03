@@ -177,7 +177,7 @@
             <li><strong>apisidra.ibge.gov.br</strong> &mdash; IBGE SIDRA (Brazilian cattle slaughter statistics)</li>
             <li><strong>api.worldbank.org</strong> &mdash; World Bank Open Data (the livestock production index in the global overview)</li>
             <li><strong>api.mainnet-beta.solana.com</strong> &mdash; a public Solana RPC endpoint, contacted <em>only</em> when you connect a wallet, to check Seeker Genesis Token status. That request carries your wallet's public address</li>
-            <li><strong>solherd-analytics.vercel.app</strong> &mdash; an endpoint we operate, for anonymous aggregate usage counts. See section 5a</li>
+            <li><strong>solherd-analytics.aardappvark.workers.dev</strong> &mdash; an endpoint we operate, for anonymous aggregate usage counts. See section 5a</li>
         </ul>
         <ul>
             <li>All requests go directly from your device to those public APIs</li>
@@ -189,7 +189,7 @@
 
         <h3 id="analytics">5a. Anonymous Analytics</h3>
         <p>SolHerd sends anonymous, aggregate usage counts to a single endpoint we operate,
-        <strong>solherd-analytics.vercel.app</strong>, so we can see which features are actually used
+        <strong>solherd-analytics.aardappvark.workers.dev</strong>, so we can see which features are actually used
         and roughly where the App is used.</p>
         <p><strong>What is sent.</strong> The entire request body is one event name, for example
         <code>{"event_type":"animal_added"}</code>. That is the whole payload. It contains no animal
